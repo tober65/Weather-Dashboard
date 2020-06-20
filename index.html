@@ -1,14 +1,72 @@
+<!-- Bootstrap Grid Demo -->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html lang="en-us">
 
-    <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8" />
+    <title>Weather Dashboard</title>
+
+    <!-- Bring in our bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
 </head>
+
 <body>
-    
-    <script src="script.js"></script>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <input>
+                <button>Search</button>
+                <div>History buttons will go here</div>
+            </div>
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Atlanta (6/19/2020)</h1>
+                        <div>
+                            Temp
+                        </div>
+                        <div>
+                            Humidity
+                        </div>
+                        <div>
+                            Wind Speed
+                        </div>
+                        <div>
+                            UV Index
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>5-Day Forecast:</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class=card>
+                            <div>Date</div>
+                            <div>Icon</div>
+                            <div>Temp</div>
+                            <div>Humidity</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class=card>Some text</div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class=card>Some text</div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class=card>Some text</div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class=card>Some text</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
