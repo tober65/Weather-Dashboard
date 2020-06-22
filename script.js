@@ -1,8 +1,34 @@
 var APIKey = "4c2e4d333c6901d5121a0e53238cf3ea";
 var now = moment();
+var cityList = [];
+
+var cityListString = localStorage.getItem("cityList");
+
+if (cityListString !== null) {
+    cityList = JSON.parse(cityListString);
+}
+
+$("#history-buttons-div").empty();
+
+for(var i = 0; i < cityList.length; i++) {
+    var newBtn = $("<button>");
+    newBtn.text(cityList[i]);
+    $("#history-buttons-div").prepend(newBtn);
+}
 
 $("#search-button").on("click", function (event) {
     var city = $("#city-input").val();
+
+    cityList.push(city);
+    localStorage.setItem("cityList", JSON.stringify(cityList));
+
+    $("#history-buttons-div").empty();
+
+    for(var i = 0; i < cityList.length; i++) {
+        var newBtn = $("<button>");
+        newBtn.text(cityList[i]);
+        $("#history-buttons-div").prepend(newBtn);
+    }
 
     var queryURL =
         "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" +
@@ -22,7 +48,30 @@ $("#search-button").on("click", function (event) {
             url: uvQueryURL,
             method: "GET",
         }).then(function (response) {
-            $("#today-uv-index").text("UV Index: " + response.value);
+            uvValue = response.value;
+
+            if (uvValue <= 2) {
+                //color = green
+                $("#uv-value").attr("style", "background-color: green");
+            }
+            else if (uvValue <= 5) {
+                //color = yellow
+                $("#uv-value").attr("style", "background-color: yellow");
+            }
+            else if (uvValue <= 7) {
+                //color = orange
+                $("#uv-value").attr("style", "background-color: orange");
+            }
+            else if (uvValue <= 10) {
+                //color = red
+                $("#uv-value").attr("style", "background-color: red");
+            }
+            else {
+                //color = purple
+                $("#uv-value").attr("style", "background-color: purple");
+            }
+
+            $("#uv-value").text(response.value);
         });
 
         $("#city-name").text(response.name + " " + now.format("M/D/YYYY"));
@@ -41,7 +90,6 @@ $("#search-button").on("click", function (event) {
         url: fiveDayQueryURL,
         method: "GET",
     }).then(function (response) {
-        console.log(response);
         document.getElementById("#day1").children[2].textContent = "Temp: " + response.list[1].main.temp + " F";
         document.getElementById("#day2").children[2].textContent = "Temp: " + response.list[9].main.temp + " F";
         document.getElementById("#day3").children[2].textContent = "Temp: " + response.list[17].main.temp + " F";
