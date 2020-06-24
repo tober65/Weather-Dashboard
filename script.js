@@ -55,7 +55,7 @@ function getWeather(city) {
     }).then(function (response) {
         var lat = response.coord.lat;
         var lon = response.coord.lon;
-        var uvQueryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon;
+        var uvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon;
 
         $.ajax({
             url: uvQueryURL,
