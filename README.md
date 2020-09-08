@@ -21,7 +21,7 @@ A weather dashboard that will give a current day forecast and a five-day forecas
 Download the source code, then in the folder with script.js run "npm install". 
 
 ## Usage
-In the folder with script.js run "node script.js". Seach for a city using the box in the top left of the screen.
+In the folder with script.js run "node script.js". Or go to the deployed page https://tober65.github.io/Weather-Dashboard/. Seach for a city using the box in the top left of the screen. 
 
 ## License
 This is licensed under the [MIT license](https://choosealicense.com/licenses/mit/).
